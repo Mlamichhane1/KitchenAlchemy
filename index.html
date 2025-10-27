@@ -5,77 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KitchenAlchemy</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Simple internal styles to show stability and transitions */
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fdfdfd;
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s ease;
-    }
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: #2b2b2b;
-      color: white;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px;
-      z-index: 100;
-    }
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .navbar a:hover {
-      color: #ffb703;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    section {
-      margin-bottom: 30px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .recipe {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      transition: transform 0.2s ease;
-    }
-    .recipe:hover {
-      transform: translateY(-5px);
-    }
-    button {
-      background: #ffb703;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #fb8500;
-    }
-    footer {
-      text-align: center;
-      color: #888;
-      padding: 20px;
-    }
-  </style>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading KitchenAlchemy...</p>
+  </div>
+
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <a href="#home">Home</a>
     <a href="#search">Search</a>
@@ -85,63 +23,105 @@
   </nav>
 
   <div class="container">
+    <!-- Home Section -->
     <section id="home">
       <h1>🍳 KitchenAlchemy</h1>
-      <p>Cook smarter with ingredients you already have!</p>
+      <p>Where everyday ingredients meet culinary magic.</p>
+      <p>Discover recipes you can make with what’s already in your kitchen.</p>
     </section>
 
+    <!-- Search Section -->
     <section id="search">
       <h2>Find a Recipe</h2>
       <input type="text" id="ingredientInput" placeholder="Enter ingredient...">
       <button onclick="searchRecipe()">Search</button>
-      <p id="result" style="margin-top:10px;color:#555;"></p>
+      <p id="result"></p>
     </section>
 
+    <!-- Recipes Section -->
     <section id="recipes">
-      <h2>Trending Recipes</h2>
-      <div class="recipe">
-        <h3>Garlic Lemon Chicken</h3>
-        <p>25 min • Halal • Gluten-Free</p>
-        <button onclick="addFavorite('Garlic Lemon Chicken')">❤️ Favorite</button>
-      </div>
-      <div class="recipe">
-        <h3>Veggie Stir-Fry</h3>
-        <p>15 min • Vegan</p>
-        <button onclick="addFavorite('Veggie Stir-Fry')">❤️ Favorite</button>
+      <h2>Featured Recipes</h2>
+      <div class="recipe-grid">
+        <div class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1604908177430-65c4c3f05b7c" alt="Garlic Butter Shrimp">
+          <h3>Garlic Butter Shrimp</h3>
+          <p>Juicy shrimp cooked in a buttery garlic sauce — quick, flavorful, and ready in 15 minutes.</p>
+          <button onclick="addFavorite('Garlic Butter Shrimp')">❤️ Favorite</button>
+        </div>
+
+        <div class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1617196035154-1e5b3f7bba56" alt="Avocado Toast">
+          <h3>Avocado Toast Deluxe</h3>
+          <p>Creamy smashed avocado with a sprinkle of chili flakes and olive oil drizzle — breakfast perfection.</p>
+          <button onclick="addFavorite('Avocado Toast Deluxe')">❤️ Favorite</button>
+        </div>
+
+        <div class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1603133872878-684f8d7158cb" alt="Pasta Primavera">
+          <h3>Pasta Primavera</h3>
+          <p>Colorful seasonal veggies tossed with pasta in a light olive oil and garlic sauce.</p>
+          <button onclick="addFavorite('Pasta Primavera')">❤️ Favorite</button>
+        </div>
+
+        <div class="recipe-card">
+          <img src="https://images.unsplash.com/photo-1603133872741-8e4a1c7f1b3a" alt="Lemon Chicken Bowl">
+          <h3>Lemon Chicken Bowl</h3>
+          <p>Pan-seared chicken with a zesty lemon glaze served over fluffy rice — balanced and bright.</p>
+          <button onclick="addFavorite('Lemon Chicken Bowl')">❤️ Favorite</button>
+        </div>
       </div>
     </section>
 
+    <!-- Favorites Section -->
     <section id="favorites">
       <h2>My Favorites</h2>
       <ul id="favoriteList"><li>No favorites yet</li></ul>
     </section>
 
+    <!-- Shopping List -->
     <section id="shopping">
       <h2>Shopping List</h2>
       <ul>
         <li>2 chicken breasts</li>
-        <li>1 lemon</li>
         <li>3 cloves garlic</li>
+        <li>1 lemon</li>
+        <li>2 tbsp olive oil</li>
       </ul>
     </section>
 
+    <!-- Footer -->
     <footer>© 2025 KitchenAlchemy | Built by Madhav Lamichhane</footer>
   </div>
 
+  <!-- JavaScript -->
   <script>
-    // Simple JS for demo interactivity
+    // Loading screen fade-out
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("loader");
+      loader.style.opacity = "0";
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 600);
+    });
+
+    // Simple search
     function searchRecipe() {
       const input = document.getElementById('ingredientInput').value.toLowerCase();
       const result = document.getElementById('result');
       if (input.includes('chicken')) {
-        result.textContent = 'Found: Garlic Lemon Chicken (25 min)';
-      } else if (input.includes('veggie')) {
-        result.textContent = 'Found: Veggie Stir-Fry (15 min)';
+        result.textContent = 'Found: Lemon Chicken Bowl (25 min)';
+      } else if (input.includes('shrimp')) {
+        result.textContent = 'Found: Garlic Butter Shrimp (15 min)';
+      } else if (input.includes('pasta')) {
+        result.textContent = 'Found: Pasta Primavera (20 min)';
+      } else if (input.includes('avocado')) {
+        result.textContent = 'Found: Avocado Toast Deluxe (10 min)';
       } else {
         result.textContent = 'No recipes found for that ingredient.';
       }
     }
 
+    // Add favorite
     function addFavorite(recipe) {
       const list = document.getElementById('favoriteList');
       if (list.textContent === 'No favorites yet') list.innerHTML = '';
