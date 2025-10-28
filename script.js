@@ -1,41 +1,17 @@
-// ===== Dataset for Recipes =====
+// ===== Recipe Data =====
 const recipes = [
-  {
-    name: "Garlic Butter Shrimp",
-    type: ["halal", "gluten-free"],
-    ingredient: "shrimp"
-  },
-  {
-    name: "Avocado Toast Deluxe",
-    type: ["vegetarian"],
-    ingredient: "avocado"
-  },
-  {
-    name: "Pasta Primavera",
-    type: ["vegetarian"],
-    ingredient: "pasta"
-  },
-  {
-    name: "Lemon Chicken Bowl",
-    type: ["halal"],
-    ingredient: "chicken"
-  },
-  {
-    name: "Vegan Stir Fry",
-    type: ["vegan", "gluten-free"],
-    ingredient: "tofu"
-  },
-  {
-    name: "Greek Salad",
-    type: ["vegetarian", "gluten-free"],
-    ingredient: "tomato"
-  }
+  { name: "Garlic Butter Shrimp", type: ["halal", "gluten-free"], ingredient: "shrimp" },
+  { name: "Avocado Toast Deluxe", type: ["vegetarian"], ingredient: "avocado" },
+  { name: "Pasta Primavera", type: ["vegetarian"], ingredient: "pasta" },
+  { name: "Lemon Chicken Bowl", type: ["halal"], ingredient: "chicken" },
+  { name: "Vegan Stir Fry", type: ["vegan", "gluten-free"], ingredient: "tofu" },
+  { name: "Greek Salad", type: ["vegetarian", "gluten-free"], ingredient: "tomato" }
 ];
 
-// ===== Display Recipes Dynamically =====
+// ===== Display Recipes =====
 function displayRecipes(recipesToShow) {
   const recipeSection = document.querySelector(".recipes");
-  recipeSection.innerHTML = ""; // Clear old recipes
+  recipeSection.innerHTML = "";
 
   recipesToShow.forEach(recipe => {
     const card = document.createElement("div");
@@ -49,13 +25,13 @@ function displayRecipes(recipesToShow) {
   });
 }
 
-// ===== Filter Recipes by Dietary Type =====
+// ===== Filter by Type =====
 function filterRecipes(type) {
   const filtered = recipes.filter(recipe => recipe.type.includes(type));
   displayRecipes(filtered);
 }
 
-// ===== Search Recipes by Ingredient =====
+// ===== Search by Ingredient =====
 function searchRecipe() {
   const input = document.getElementById("ingredientInput").value.toLowerCase();
   const filtered = recipes.filter(recipe =>
@@ -64,12 +40,12 @@ function searchRecipe() {
   displayRecipes(filtered);
 }
 
-// ===== Smooth Scroll to Section =====
+// ===== Scroll to Section =====
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 
-// ===== Initialize Page =====
+// ===== Initialize =====
 document.addEventListener("DOMContentLoaded", () => {
   displayRecipes(recipes);
 });
