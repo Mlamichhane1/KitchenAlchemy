@@ -3,53 +3,47 @@ const recipes = [
   {
     name: "Garlic Butter Shrimp",
     type: ["halal", "gluten-free"],
-    ingredient: "shrimp",
-    img: "https://images.unsplash.com/photo-1604908177430-65c4c3f05b7c?auto=format&fit=crop&w=800&q=80"
+    ingredient: "shrimp"
   },
   {
     name: "Avocado Toast Deluxe",
     type: ["vegetarian"],
-    ingredient: "avocado",
-    img: "https://images.unsplash.com/photo-1617196035154-1e5b3f7bba56?auto=format&fit=crop&w=800&q=80"
+    ingredient: "avocado"
   },
   {
     name: "Pasta Primavera",
     type: ["vegetarian"],
-    ingredient: "pasta",
-    img: "https://images.unsplash.com/photo-1603133872878-684f8d7158cb?auto=format&fit=crop&w=800&q=80"
+    ingredient: "pasta"
   },
   {
     name: "Lemon Chicken Bowl",
     type: ["halal"],
-    ingredient: "chicken",
-    img: "https://images.unsplash.com/photo-1603133872741-8e4a1c7f1b3a?auto=format&fit=crop&w=800&q=80"
+    ingredient: "chicken"
   },
   {
     name: "Vegan Stir Fry",
     type: ["vegan", "gluten-free"],
-    ingredient: "tofu",
-    img: "https://images.unsplash.com/photo-1601050690597-b4a9d8b7e7e5?auto=format&fit=crop&w=800&q=80"
+    ingredient: "tofu"
   },
   {
     name: "Greek Salad",
     type: ["vegetarian", "gluten-free"],
-    ingredient: "tomato",
-    img: "https://images.unsplash.com/photo-1565958011705-44e21157ad17?auto=format&fit=crop&w=800&q=80"
+    ingredient: "tomato"
   }
 ];
 
 // ===== Display Recipes Dynamically =====
 function displayRecipes(recipesToShow) {
   const recipeSection = document.querySelector(".recipes");
-  recipeSection.innerHTML = ""; // clear old recipes
+  recipeSection.innerHTML = ""; // Clear old recipes
 
   recipesToShow.forEach(recipe => {
     const card = document.createElement("div");
     card.classList.add("recipe-card");
     card.innerHTML = `
-      <img src="${recipe.img}" alt="${recipe.name}">
       <h3>${recipe.name}</h3>
-      <p>${recipe.type.join(", ")}</p>
+      <p><strong>Type:</strong> ${recipe.type.join(", ")}</p>
+      <p><strong>Main Ingredient:</strong> ${recipe.ingredient}</p>
     `;
     recipeSection.appendChild(card);
   });
