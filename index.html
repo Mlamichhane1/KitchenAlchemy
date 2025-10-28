@@ -7,128 +7,62 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loader">
-    <div class="spinner"></div>
-    <p>Loading KitchenAlchemy...</p>
-  </div>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>🍳 KitchenAlchemy</h1>
+      <p>Where everyday ingredients meet culinary magic</p>
+    </div>
+  </header>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav class="navbar">
     <a href="#home">Home</a>
-    <a href="#search">Search</a>
     <a href="#recipes">Recipes</a>
     <a href="#favorites">Favorites</a>
-    <a href="#shopping">Shopping List</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#about">About</a>
   </nav>
 
-  <div class="container">
+  <!-- Main Container -->
+  <main>
     <!-- Home Section -->
     <section id="home">
-      <h1>🍳 KitchenAlchemy</h1>
-      <p>Where everyday ingredients meet culinary magic.</p>
-      <p>Discover recipes you can make with what’s already in your kitchen.</p>
+      <h2>Welcome to KitchenAlchemy</h2>
+      <p>Discover new recipes using ingredients you already have. This project will help reduce waste, save time, and make your cooking experience smarter and easier.</p>
+      <button class="primary-btn">Explore Recipes</button>
     </section>
 
-    <!-- Search Section -->
-    <section id="search">
-      <h2>Find a Recipe</h2>
-      <input type="text" id="ingredientInput" placeholder="Enter ingredient...">
-      <button onclick="searchRecipe()">Search</button>
-      <p id="result"></p>
-    </section>
-
-    <!-- Recipes Section -->
-    <section id="recipes">
-      <h2>Featured Recipes</h2>
-      <div class="recipe-grid">
-        <div class="recipe-card">
-          <img src="https://images.unsplash.com/photo-1604908177430-65c4c3f05b7c?auto=format&fit=crop&w=800&q=80" alt="Garlic Butter Shrimp">
-          <h3>Garlic Butter Shrimp</h3>
-          <p>Juicy shrimp cooked in a buttery garlic sauce — quick, flavorful, and ready in 15 minutes.</p>
-          <button onclick="addFavorite('Garlic Butter Shrimp')">❤️ Favorite</button>
+    <!-- Upcoming Features -->
+    <section id="features">
+      <h2>Project Tasks</h2>
+      <div class="task-grid">
+        <div class="task-card">
+          <h3>✅ Apply Color Scheme</h3>
+          <p>Use a consistent design across all pages and components for a professional look.</p>
         </div>
-
-        <div class="recipe-card">
-          <img src="https://images.unsplash.com/photo-1617196035154-1e5b3f7bba56?auto=format&fit=crop&w=800&q=80" alt="Avocado Toast">
-          <h3>Avocado Toast Deluxe</h3>
-          <p>Creamy smashed avocado with a sprinkle of chili flakes and olive oil drizzle — breakfast perfection.</p>
-          <button onclick="addFavorite('Avocado Toast Deluxe')">❤️ Favorite</button>
+        <div class="task-card">
+          <h3>✅ Add Dietary Filters</h3>
+          <p>Include options for Vegan, Halal, and Gluten-Free recipe filters.</p>
         </div>
-
-        <div class="recipe-card">
-          <img src="https://images.unsplash.com/photo-1603133872878-684f8d7158cb?auto=format&fit=crop&w=800&q=80" alt="Pasta Primavera">
-          <h3>Pasta Primavera</h3>
-          <p>Colorful seasonal veggies tossed with pasta in a light olive oil and garlic sauce.</p>
-          <button onclick="addFavorite('Pasta Primavera')">❤️ Favorite</button>
+        <div class="task-card">
+          <h3>✅ Implement Search Bar</h3>
+          <p>Allow users to search for recipes by ingredient or keyword.</p>
         </div>
-
-        <div class="recipe-card">
-          <img src="https://images.unsplash.com/photo-1603133872741-8e4a1c7f1b3a?auto=format&fit=crop&w=800&q=80" alt="Lemon Chicken Bowl">
-          <h3>Lemon Chicken Bowl</h3>
-          <p>Pan-seared chicken with a zesty lemon glaze served over fluffy rice — balanced and bright.</p>
-          <button onclick="addFavorite('Lemon Chicken Bowl')">❤️ Favorite</button>
+        <div class="task-card">
+          <h3>✅ Build Responsive Grid</h3>
+          <p>Design a flexible layout for recipe cards that adapts to all devices.</p>
         </div>
       </div>
     </section>
+  </main>
 
-    <!-- Favorites Section -->
-    <section id="favorites">
-      <h2>My Favorites</h2>
-      <ul id="favoriteList"><li>No favorites yet</li></ul>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 KitchenAlchemy | Team C1 | Designed by Madhav Lamichhane</p>
+  </footer>
 
-    <!-- Shopping List -->
-    <section id="shopping">
-      <h2>Shopping List</h2>
-      <ul>
-        <li>2 chicken breasts</li>
-        <li>3 cloves garlic</li>
-        <li>1 lemon</li>
-        <li>2 tbsp olive oil</li>
-      </ul>
-    </section>
-
-    <!-- Footer -->
-    <footer>© 2025 KitchenAlchemy | Built by Madhav Lamichhane</footer>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    // Loading screen fade-out
-    window.addEventListener("load", function() {
-      const loader = document.getElementById("loader");
-      loader.style.opacity = "0";
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 600);
-    });
-
-    // Simple search
-    function searchRecipe() {
-      const input = document.getElementById('ingredientInput').value.toLowerCase();
-      const result = document.getElementById('result');
-      if (input.includes('chicken')) {
-        result.textContent = 'Found: Lemon Chicken Bowl (25 min)';
-      } else if (input.includes('shrimp')) {
-        result.textContent = 'Found: Garlic Butter Shrimp (15 min)';
-      } else if (input.includes('pasta')) {
-        result.textContent = 'Found: Pasta Primavera (20 min)';
-      } else if (input.includes('avocado')) {
-        result.textContent = 'Found: Avocado Toast Deluxe (10 min)';
-      } else {
-        result.textContent = 'No recipes found for that ingredient.';
-      }
-    }
-
-    // Add favorite
-    function addFavorite(recipe) {
-      const list = document.getElementById('favoriteList');
-      if (list.textContent === 'No favorites yet') list.innerHTML = '';
-      const li = document.createElement('li');
-      li.textContent = recipe;
-      list.appendChild(li);
-    }
-  </script>
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
