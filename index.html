@@ -1,21 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KitchenAlchemy</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <h1>🍳 KitchenAlchemy</h1>
-      <p>Where everyday ingredients meet culinary magic</p>
-    </div>
+  <!-- HEADER -->
+  <header class="header">
+    <h1>🍳 KitchenAlchemy</h1>
+    <p>Where everyday ingredients meet culinary magic</p>
   </header>
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <a href="#home">Home</a>
     <a href="#filters">Filters</a>
@@ -24,45 +22,54 @@
     <a href="#about">About</a>
   </nav>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Home Section -->
-    <section id="home">
-      <h2>Welcome to KitchenAlchemy</h2>
-      <p>Discover delicious recipes made from ingredients you already have. Use the search bar or dietary filters below to find your next meal inspiration.</p>
-      <button class="primary-btn" onclick="scrollToSection('recipes')">Explore Recipes</button>
-    </section>
+  <!-- HOME SECTION -->
+  <section id="home" class="section">
+    <h2>Welcome to KitchenAlchemy</h2>
+    <p>
+      Discover simple, delicious recipes using ingredients you already have.
+      Search by ingredient or apply filters to match your dietary needs.
+    </p>
+    <button onclick="scrollToSection('recipes')" class="btn">Explore Recipes</button>
+  </section>
 
-    <!-- Dietary Filters -->
-    <section id="filters">
-      <h2>Dietary Filters</h2>
-      <div class="filter-buttons">
-        <button class="filter-btn" onclick="filterRecipes('vegan')">🥗 Vegan</button>
-        <button class="filter-btn" onclick="filterRecipes('halal')">🐔 Halal</button>
-        <button class="filter-btn" onclick="filterRecipes('gluten-free')">🌾 Gluten-Free</button>
-        <button class="filter-btn" onclick="filterRecipes('vegetarian')">🥬 Vegetarian</button>
-        <button class="filter-btn reset" onclick="filterRecipes('all')">🔄 Show All</button>
-      </div>
-    </section>
+  <!-- FILTER SECTION -->
+  <section id="filters" class="section">
+    <h2>Dietary Filters</h2>
+    <div class="filter-buttons">
+      <button onclick="filterRecipes('vegan')">🌱 Vegan</button>
+      <button onclick="filterRecipes('halal')">🕌 Halal</button>
+      <button onclick="filterRecipes('gluten-free')">🍞 Gluten-Free</button>
+      <button onclick="filterRecipes('vegetarian')">🥗 Vegetarian</button>
+      <button onclick="displayRecipes(recipes)">🔁 Show All</button>
+    </div>
+  </section>
 
-    <!-- Ingredient Search -->
-    <section id="search">
-      <h2>Search by Ingredient</h2>
-      <div class="search-bar">
-        <input type="text" id="ingredientInput" placeholder="e.g. chicken, shrimp, avocado...">
-        <button onclick="searchRecipe()">Search</button>
-      </div>
-      <p id="result"></p>
-    </section>
+  <!-- SEARCH SECTION -->
+  <section id="search" class="section">
+    <h2>Search by Ingredient</h2>
+    <div class="search-box">
+      <input type="text" id="ingredientInput" placeholder="e.g. chicken, shrimp, avocado..." />
+      <button onclick="searchRecipe()">Search</button>
+    </div>
+  </section>
 
-    <!-- Recipes Section -->
-    <section id="recipes">
-      <h2>Recipes</h2>
-      <div id="recipeGrid" class="recipe-grid"></div>
-    </section>
-  </main>
+  <!-- RECIPES SECTION -->
+  <section id="recipes" class="section">
+    <h2>Recipes</h2>
+    <div class="recipes"></div>
+  </section>
 
-  <!-- Footer -->
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p>
+      KitchenAlchemy is a simple, student-built project designed to show how a
+      recipe app can be interactive and user-friendly. The goal is to make cooking
+      fun and accessible while reducing food waste.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 KitchenAlchemy | Team C1 | Designed by Madhav Lamichhane</p>
   </footer>
