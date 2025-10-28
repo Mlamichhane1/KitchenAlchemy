@@ -18,42 +18,47 @@
   <!-- Navigation -->
   <nav class="navbar">
     <a href="#home">Home</a>
+    <a href="#filters">Filters</a>
+    <a href="#search">Search</a>
     <a href="#recipes">Recipes</a>
-    <a href="#favorites">Favorites</a>
-    <a href="#shopping">Shopping</a>
     <a href="#about">About</a>
   </nav>
 
-  <!-- Main Container -->
+  <!-- Main Content -->
   <main>
     <!-- Home Section -->
     <section id="home">
       <h2>Welcome to KitchenAlchemy</h2>
-      <p>Discover new recipes using ingredients you already have. This project will help reduce waste, save time, and make your cooking experience smarter and easier.</p>
-      <button class="primary-btn">Explore Recipes</button>
+      <p>Discover delicious recipes made from ingredients you already have. Use the search bar or dietary filters below to find your next meal inspiration.</p>
+      <button class="primary-btn" onclick="scrollToSection('recipes')">Explore Recipes</button>
     </section>
 
-    <!-- Upcoming Features -->
-    <section id="features">
-      <h2>Project Tasks</h2>
-      <div class="task-grid">
-        <div class="task-card">
-          <h3>✅ Apply Color Scheme</h3>
-          <p>Use a consistent design across all pages and components for a professional look.</p>
-        </div>
-        <div class="task-card">
-          <h3>✅ Add Dietary Filters</h3>
-          <p>Include options for Vegan, Halal, and Gluten-Free recipe filters.</p>
-        </div>
-        <div class="task-card">
-          <h3>✅ Implement Search Bar</h3>
-          <p>Allow users to search for recipes by ingredient or keyword.</p>
-        </div>
-        <div class="task-card">
-          <h3>✅ Build Responsive Grid</h3>
-          <p>Design a flexible layout for recipe cards that adapts to all devices.</p>
-        </div>
+    <!-- Dietary Filters -->
+    <section id="filters">
+      <h2>Dietary Filters</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn" onclick="filterRecipes('vegan')">🥗 Vegan</button>
+        <button class="filter-btn" onclick="filterRecipes('halal')">🐔 Halal</button>
+        <button class="filter-btn" onclick="filterRecipes('gluten-free')">🌾 Gluten-Free</button>
+        <button class="filter-btn" onclick="filterRecipes('vegetarian')">🥬 Vegetarian</button>
+        <button class="filter-btn reset" onclick="filterRecipes('all')">🔄 Show All</button>
       </div>
+    </section>
+
+    <!-- Ingredient Search -->
+    <section id="search">
+      <h2>Search by Ingredient</h2>
+      <div class="search-bar">
+        <input type="text" id="ingredientInput" placeholder="e.g. chicken, shrimp, avocado...">
+        <button onclick="searchRecipe()">Search</button>
+      </div>
+      <p id="result"></p>
+    </section>
+
+    <!-- Recipes Section -->
+    <section id="recipes">
+      <h2>Recipes</h2>
+      <div id="recipeGrid" class="recipe-grid"></div>
     </section>
   </main>
 
@@ -62,7 +67,6 @@
     <p>© 2025 KitchenAlchemy | Team C1 | Designed by Madhav Lamichhane</p>
   </footer>
 
-  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
