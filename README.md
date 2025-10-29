@@ -19,7 +19,7 @@ With customizable filters for dietary preferences such as vegetarian, low-carb, 
 - **JavaScript**  
 
 ## 🚀 Live Demo
-👉 [View KitchenAlchemy on GitHub Pages]([https://yourusername.github.io/KitchenAlchemy/](https://mlamichhane1.github.io/KitchenAlchemy/))  
+👉 [View KitchenAlchemy on GitHub Pages](https://mlamichhane1.github.io/KitchenAlchemy/)  
 *(Replace with your actual link once it’s live)*
 
 ## 👤 Author
